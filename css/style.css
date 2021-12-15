@@ -1,0 +1,138 @@
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Kumbh Sans, sans-serif;
+}
+
+.clearfix:after {
+    content: ' ';
+    display: block;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+    visibility: hidden;
+}
+
+#header {
+    display: grid;
+	grid-template-columns: 200px 1fr 200px;
+    height: 130px;
+    border-bottom: 1px solid #eee;
+}
+
+#header-logo {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+#header-logo img {
+    width: 130px;
+    margin: 0 auto;
+    display: block;
+}
+
+#header-menu-middle ul {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    user-select: none;
+}
+
+#header-menu-middle li {
+    float: left;
+    list-style: none;
+    margin: 0;
+    min-width: 70px;
+    height: 100%;
+    text-align: center;
+}
+
+#header-menu-middle li a {
+    height: 130px;
+    line-height: 130px;
+    display: block;
+    padding: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    color: hsl(220, 14%, 75%);
+    border-bottom: 2px solid transparent;
+    transition: .2s ease-in;
+}
+
+#header-menu-middle li a.active,
+#header-menu-middle li a:hover {
+    color: hsl(219, 9%, 45%);
+    border-bottom-color: hsl(26, 100%, 55%);
+}
+
+#header-menu-right ul {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+#header-menu-right-card-button {
+    float: left;
+    list-style: none;
+    margin: 0;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    user-select: none;
+}
+
+#header-menu-right-card-button a {
+    height: 130px;
+    line-height: 130px;
+    display: block;
+    padding: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    color: hsl(220, 14%, 75%);
+    border-bottom: 2px solid transparent;
+}
+
+#header-menu-right-card-content {
+    display: none;
+}
+
+#header-menu-right-profile-image {
+    list-style: none;
+    user-select: none;
+}
+
+#header-menu-right-profile-image a {
+    display: flex;
+    align-items: center;
+    height: 120px;
+}
+
+#header-menu-right-profile-image img {
+    width: 50px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: .2s ease-in;
+}
+
+#header-menu-right-profile-image:hover img {
+    border-color: hsl(26, 100%, 55%);
+}
+
+.main {
+    padding: 15px;
+}
+
+.attribution {
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a {
+    color: hsl(228, 45%, 44%); 
+}
