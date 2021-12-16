@@ -16,7 +16,25 @@ body {
     visibility: hidden;
 }
 
-#header {
+.container {
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        width: 980px;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .container {
+        width: 1200px;
+        margin: auto;
+    }
+}
+
+#header .container {
     display: grid;
 	grid-template-columns: 200px 1fr 200px;
     height: 130px;
