@@ -27,7 +27,7 @@ body {
 
 #header .container {
     display: grid;
-	grid-template-columns: 90px 1fr 200px;
+	grid-template-columns: 73px 1fr 1fr;
 }
 
 #header-menu {
@@ -49,10 +49,6 @@ body {
     height: 20px;
 }
 
-#header-menu-middle {
-    display: none;
-}
-
 #header-logo {
     height: 100%;
     display: flex;
@@ -64,39 +60,63 @@ body {
     width: 180px;
 }
 
-#header-menu-middle ul {
-    padding: 0;
+#header-menu-middle {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#header-menu-middle.active {
+    display: block;
+}
+
+#header-menu-middle-container {
+    width: 60%;
+    height: 100vh;
+    overflow: hidden;
+    background: #eee;
+    padding: 20px;
     margin: 0;
-    height: 100%;
+}
+
+#header-menu-middle-close {
+    display: block;
+    width: 100%;
     user-select: none;
 }
 
-#header-menu-middle li {
-    float: left;
-    list-style: none;
+#header-menu-middle-close a {
+    padding: 13px 10px 5px 0px;
+}
+
+#header-menu-middle-container > ul {
+    padding: 0;
     margin: 0;
-    min-width: 70px;
-    height: 100%;
-    text-align: center;
+    margin-top: 30px;
 }
 
-#header-menu-middle li a {
-    height: 130px;
-    line-height: 130px;
+#header-menu-middle-container > ul > li {
     display: block;
-    padding: 0 15px;
-    text-decoration: none;
-    font-size: 14px;
-    font-style: normal;
-    color: hsl(220, 14%, 75%);
-    border-bottom: 2px solid transparent;
-    transition: .2s ease-in;
+    height: 20px;
+    line-height: 20px;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 25px;
 }
 
-#header-menu-middle li a.active,
-#header-menu-middle li a:hover {
-    color: hsl(219, 9%, 45%);
-    border-bottom-color: hsl(26, 100%, 55%);
+#header-menu-middle-container > ul > li a {
+    height: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    padding: 5px 10px 5px 0px;
+    display: block;
 }
 
 #header-menu-right ul {

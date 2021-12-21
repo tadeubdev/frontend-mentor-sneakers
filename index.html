@@ -17,20 +17,27 @@
     <div class="container">
       <div id="header-menu">
         <a href="javascript:void(0);">
-          <img src="./images/icon-menu.svg" alt="">
+          <img src="./images/icon-menu.svg" alt="Menu">
         </a>
       </div>
       <div id="header-logo">
         <img src="./images/logo.svg" alt="Sneakers" />
       </div>
       <nav id="header-menu-middle">
-        <ul class="clearfix">
-          <li><a href="javascript:void(0);">Collections</a></li>
-          <li><a href="javascript:void(0);">Men</a></li>
-          <li><a href="javascript:void(0);">Women</a></li>
-          <li><a href="javascript:void(0);">About</a></li>
-          <li><a href="javascript:void(0);">Contact</a></li>
-        </ul>
+        <div id="header-menu-middle-container">
+          <div id="header-menu-middle-close">
+            <a href="javascript:void(0);">
+              <img src="./images/icon-close.svg" alt="Close" />
+            </a>
+          </div>
+          <ul class="clearfix">
+            <li><a href="javascript:void(0);">Collections</a></li>
+            <li><a href="javascript:void(0);">Men</a></li>
+            <li><a href="javascript:void(0);">Women</a></li>
+            <li><a href="javascript:void(0);">About</a></li>
+            <li><a href="javascript:void(0);">Contact</a></li>
+          </ul>
+        </div>
       </nav>
       <div id="header-menu-right">
         <ul>
@@ -75,5 +82,16 @@
       </div>
     </footer>
   </main>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelector('#header-menu').addEventListener('click', () => {
+        document.querySelector('#header-menu-middle').classList.add('active');
+      });
+      document.querySelector('#header-menu-middle-close').addEventListener('click', () => {
+        document.querySelector('#header-menu-middle').classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -25,11 +25,98 @@
     #header-menu-right-profile-image a {
         height: 130px;
     }
+
+    /* #header-menu-middle ul {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        user-select: none;
+    }
+    #header-menu-middle li {
+        float: left;
+        list-style: none;
+        margin: 0;
+        min-width: 70px;
+        height: 100%;
+        text-align: center;
+    }
+    #header-menu-middle li a {
+        height: 130px;
+        line-height: 130px;
+        display: block;
+        padding: 0 15px;
+        text-decoration: none;
+        font-size: 14px;
+        font-style: normal;
+        color: hsl(220, 14%, 75%);
+        border-bottom: 2px solid transparent;
+        transition: .2s ease-in;
+    }
+    #header-menu-middle li a.active,
+    #header-menu-middle li a:hover {
+        color: hsl(219, 9%, 45%);
+        border-bottom-color: hsl(26, 100%, 55%);
+    } */
+
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 981px) {
     .container {
-        width: 1250px;
+        width: 980px;
         margin: auto;
+    }
+    #header .container {
+        display: grid;
+        grid-template-columns: 250px 1fr 200px;
+    }
+    #header-logo img {
+        margin: auto;
+    }
+    #header-menu {
+        display: none;
+    }
+    #header-menu-middle {
+        width: auto;
+        height: 60px;
+        position: unset;
+        background: none;
+        display: block;
+    }
+    #header-menu-middle-close {
+        display: none;
+    }
+    #header-menu-middle-container {
+        background: none;
+        padding: 0;
+        margin: 0;    
+        width: 100%;
+        height: auto;
+    }
+    #header-menu-middle-container > ul {
+        margin-top: 0;
+    }
+    #header-menu-middle-container > ul > li {
+        list-style: none;
+        margin: 0;
+        width: auto;
+        text-align: center;
+        float: none;
+        display: inline-block;
+        height: 130px;
+    }
+    #header-menu-middle-container > ul > li > a {
+        height: 128px;
+        display: inline-block;
+        line-height: 130px;
+        font-weight: 100;
+        font-size: 16px;
+        padding: 0 10px;
+        color: hsl(219, 9%, 45%);
+        border: solid transparent;
+        border-width: 0 0 2px 0;
+        transition: .3s ease-in-out;
+    }
+    #header-menu-middle-container > ul > li:hover > a {
+        border-bottom-color: hsl(26, 100%, 55%);
     }
 }
