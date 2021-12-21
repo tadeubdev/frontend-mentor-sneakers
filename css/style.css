@@ -65,6 +65,7 @@ body {
 #header-menu {
     height: 100%;
     display: flex;
+    user-select: none;
 }
 
 #header-menu a {
@@ -96,6 +97,7 @@ body {
     width: 100vw;
     height: 100vh;
     position: fixed;
+    z-index: 1;
     background: rgba(0,0,0,0.6);
     top: 0;
     left: 0;
@@ -320,8 +322,73 @@ body {
     user-select: none;
 }
 
-.main {
-    padding: 15px;
+#products {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+#products-images {
+    width: 100%;
+    height: 100%;
+}
+
+#products-arrows {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.products-arrow {
+    display: flex;
+    padding: 0 30px;
+}
+
+.products-arrow button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.products-arrow img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}
+
+#products-images-center {
+    width: 100%;
+    height: 100%;
+}
+
+.products-image {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.products-image.active {
+    display: block;
+}
+
+.products-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#products-images-thumbs {
+    display: none;
 }
 
 .attribution {
