@@ -7,7 +7,7 @@
         height: 130px;
     }
     #header .container {
-        height: 100%;
+        height: 130px;
         display: grid;
         grid-template-columns: 250px 1fr 200px;
     }
@@ -15,7 +15,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
+        height: 130px;
     }
     #header-menu {
         display: none;
@@ -25,7 +25,7 @@
         position: unset;
         background: none;
         display: block;
-        height: 100%;
+        height: 130px;
     }
     #header-menu-middle-close {
         display: none;
@@ -39,7 +39,7 @@
     }
     #header-menu-middle-container > ul {
         margin-top: 0;
-        height: 100%;
+        height: 130px;
     }
     #header-menu-middle-container > ul > li {
         list-style: none;
@@ -62,17 +62,20 @@
         border-width: 0 0 2px 0;
         transition: .3s ease-in-out;
     }
+    #header-menu-right {
+        height: 130px;
+    }
     #header-menu-right-card-button a {
-        height: 100%;
-        line-height: 132px;
+        height: 130px;
+        line-height: 120px;
         padding-top: 10px;
     }
     #header-menu-right-profile-image {
-        height: 100%;
+        height: 130px;
     }
     #header-menu-right-profile-image a {
         width: 50px;
-        height: 100%;
+        height: 130px;
     }
     #header-menu-middle-container > ul > li:hover > a {
         border-bottom-color: var(--primary-color);
