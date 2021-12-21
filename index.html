@@ -45,9 +45,6 @@
             <a href="javascript:void(0);">
               <img src="./images/icon-cart.svg" alt="Cart">
             </a>
-            <div id="header-menu-right-card-content">
-              123
-            </div>
           </li>
           <li id="header-menu-right-profile-image">
             <a href="javascript:void(0);">
@@ -58,6 +55,38 @@
       </div>
     </div>
   </header>
+
+  <section id="cart" class="has-items">
+    <div id="cart-header">
+      <h3 id="cart-title">Cart</h3>
+    </div>
+    <div id="card-body">
+      <div id="cart-empty">
+        <h4 id="cart-empty-message">Your cart is empty</h4>
+      </div>
+      <div id="cart-items">
+        <div id="cart-items-container">
+          <section class="cart-item clearfix">
+            <img src="./images/image-product-1-thumbnail.jpg" class="cart-item-image" alt="Autum Limited Edition">
+            <div class="cart-item-middle">
+              <h5>Autum Limited Edition</h5>
+              <p>$125.00 x 3 <strong>$375.00</strong></p>
+            </div>
+            <div class="cart-item-delete">
+              <a href="javascript:void(0);">
+                <img src="./images/icon-delete.svg" alt="Delete">
+              </a>
+            </div>
+          </section>
+        </div>
+        <div id="cart-items-checkout">
+          <button class="btn">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <main class="main" role="main">
     <div class="container">
@@ -91,6 +120,26 @@
       document.querySelector('#header-menu-middle-close').addEventListener('click', () => {
         document.querySelector('#header-menu-middle').classList.remove('active');
       });
+      document.querySelector('.cart-item-delete a').addEventListener('click', () => {
+        document.querySelector('#cart').classList.remove('has-items');
+      });
+      document.querySelector('#header-menu-right-card-button a').addEventListener('click', () => {
+        document.querySelector('#cart').classList.toggle('active');
+      });
+      function handleCheckClickOutsideOfTheCart(event) {
+        const elmCart = document.querySelector('#cart');
+        const btnOpenCart = document.querySelector('#header-menu-right-card-button a');
+        let elmTarget = event.target;
+        do {
+          if (elmTarget === elmCart || elmTarget === btnOpenCart) {
+            return;
+          }
+          elmTarget = elmTarget.parentNode;
+        } while(elmTarget);
+        // clicked outside of the cart
+        document.querySelector('#cart').classList.remove('active');
+      }
+      document.addEventListener('click', event => handleCheckClickOutsideOfTheCart(event));
     });
   </script>
 </body>

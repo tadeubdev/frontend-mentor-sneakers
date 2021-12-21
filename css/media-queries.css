@@ -1,4 +1,4 @@
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 981px) {
     .container {
         width: 980px;
         margin: auto;
@@ -7,80 +7,25 @@
         height: 130px;
     }
     #header .container {
-        grid-template-columns: 200px 1fr 200px;
-    }
-    #header-menu {
-        display: block;
-    }
-    #header-menu {
-        display: none;
-    }
-    #header-menu-middle {
-        display: block;
-    }
-    #header-menu-right-card-button a {
-        height: 130px;
-        line-height: 150px;
-    }
-    #header-menu-right-profile-image a {
-        height: 130px;
-    }
-
-    /* #header-menu-middle ul {
-        padding: 0;
-        margin: 0;
         height: 100%;
-        user-select: none;
-    }
-    #header-menu-middle li {
-        float: left;
-        list-style: none;
-        margin: 0;
-        min-width: 70px;
-        height: 100%;
-        text-align: center;
-    }
-    #header-menu-middle li a {
-        height: 130px;
-        line-height: 130px;
-        display: block;
-        padding: 0 15px;
-        text-decoration: none;
-        font-size: 14px;
-        font-style: normal;
-        color: hsl(220, 14%, 75%);
-        border-bottom: 2px solid transparent;
-        transition: .2s ease-in;
-    }
-    #header-menu-middle li a.active,
-    #header-menu-middle li a:hover {
-        color: hsl(219, 9%, 45%);
-        border-bottom-color: hsl(26, 100%, 55%);
-    } */
-
-}
-
-@media screen and (min-width: 981px) {
-    .container {
-        width: 980px;
-        margin: auto;
-    }
-    #header .container {
         display: grid;
         grid-template-columns: 250px 1fr 200px;
     }
-    #header-logo img {
-        margin: auto;
+    #header-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
     }
     #header-menu {
         display: none;
     }
     #header-menu-middle {
         width: auto;
-        height: 60px;
         position: unset;
         background: none;
         display: block;
+        height: 100%;
     }
     #header-menu-middle-close {
         display: none;
@@ -94,6 +39,7 @@
     }
     #header-menu-middle-container > ul {
         margin-top: 0;
+        height: 100%;
     }
     #header-menu-middle-container > ul > li {
         list-style: none;
@@ -102,10 +48,10 @@
         text-align: center;
         float: none;
         display: inline-block;
-        height: 130px;
+        height: 100%;
     }
     #header-menu-middle-container > ul > li > a {
-        height: 128px;
+        height: 100%;
         display: inline-block;
         line-height: 130px;
         font-weight: 100;
@@ -116,7 +62,31 @@
         border-width: 0 0 2px 0;
         transition: .3s ease-in-out;
     }
+    #header-menu-right-card-button a {
+        height: 100%;
+        line-height: 132px;
+        padding-top: 10px;
+    }
+    #header-menu-right-profile-image {
+        height: 100%;
+    }
+    #header-menu-right-profile-image a {
+        width: 50px;
+        height: 100%;
+    }
     #header-menu-middle-container > ul > li:hover > a {
-        border-bottom-color: hsl(26, 100%, 55%);
+        border-bottom-color: var(--primary-color);
+    }
+    #cart {
+        width: 400px;
+        top: 150px;
+        right: 4%;
+        left: auto;
+    }
+}
+
+@media screen and (min-width: 1301px) {
+    #cart {
+        right: 16%;
     }
 }
