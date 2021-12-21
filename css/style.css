@@ -389,6 +389,34 @@ body {
 
 #products-images-thumbs {
     display: none;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+
+.products-image-thumb {
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+}
+
+.products-image-thumb:not(.active) {
+    cursor: pointer;
+}
+
+.products-image-thumb.active {
+    border-color: var(--primary-color);
+    border-radius: 15px;
+}
+
+.products-image-thumb.active img {
+    opacity: .5;
+}
+
+.products-image-thumb img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .attribution {

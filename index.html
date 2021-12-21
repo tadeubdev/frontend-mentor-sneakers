@@ -186,22 +186,37 @@
       }
       document.addEventListener('click', event => handleCheckClickOutsideOfTheCart(event));
 
-      const images = [...document.querySelectorAll('#products-images-center .products-image')];
-      const imagesTotal = images.length;
+      const prodsImages = [...document.querySelectorAll('#products-images-center .products-image')];
+      const prodsImagesTotal = prodsImages.length;
       document.querySelectorAll('.products-arrow button').forEach(bntArrow => {
         const btnType = bntArrow.dataset.type;
 
         bntArrow.addEventListener('click', () => {
           const actualImage = document.querySelector('#products-images-center .products-image.active');
-          const actualImageIndex = images.indexOf(actualImage);
+          const actualImageIndex = prodsImages.indexOf(actualImage);
           let nextImageIndex = null;
           if (btnType === 'next') {
-            nextImageIndex = actualImageIndex === imagesTotal - 1 ? 0 : actualImageIndex + 1;
+            nextImageIndex = actualImageIndex === prodsImagesTotal - 1 ? 0 : actualImageIndex + 1;
           } else {
-            nextImageIndex = actualImageIndex === 0 ? imagesTotal - 1 : actualImageIndex - 1;
+            nextImageIndex = actualImageIndex === 0 ? prodsImagesTotal - 1 : actualImageIndex - 1;
           }
           document.querySelector('#products-images-center .products-image.active').classList.remove('active');
           document.querySelectorAll('#products-images-center .products-image')[nextImageIndex].classList.add('active');
+        });
+      });
+
+      const thumbProductsImages = [...document.querySelectorAll('#products-images-thumbs .products-image-thumb')];
+      document.querySelectorAll('.products-image-thumb').forEach(imgProduct => {
+        imgProduct.addEventListener('click', () => {
+          if (imgProduct.classList.contains('active')) {
+            return;
+          }
+          const btnImageIndex = thumbProductsImages.indexOf(imgProduct);
+          document.querySelector('#products-images-thumbs .products-image-thumb.active').classList.remove('active');
+          document.querySelectorAll('#products-images-thumbs .products-image-thumb')[btnImageIndex].classList.add('active');
+
+          document.querySelector('#products-images-center .products-image.active').classList.remove('active');
+          document.querySelectorAll('#products-images-center .products-image')[btnImageIndex].classList.add('active');
         });
       });
     });
