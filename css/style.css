@@ -214,6 +214,7 @@ body {
 #cart {
     display: none;
     position: fixed;
+    z-index: 1;
     background: #fff;
     width: 90%;
     top: 100px;
