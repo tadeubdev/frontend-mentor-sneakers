@@ -186,23 +186,28 @@
       }
       document.addEventListener('click', event => handleCheckClickOutsideOfTheCart(event));
 
+      function handleMoveProducstsImagesCarroussel(actionType) {
+        const actualImage = document.querySelector('#products-images-center .products-image.active');
+        const actualImageIndex = prodsImages.indexOf(actualImage);
+
+        let nextImageIndex = null;
+        if (actionType === 'next') {
+          nextImageIndex = actualImageIndex === prodsImagesTotal - 1 ? 0 : actualImageIndex + 1;
+        } else {
+          nextImageIndex = actualImageIndex === 0 ? prodsImagesTotal - 1 : actualImageIndex - 1;
+        }
+        document.querySelector('#products-images-center .products-image.active').classList.remove('active');
+        document.querySelectorAll('#products-images-center .products-image')[nextImageIndex].classList.add('active');
+        
+        document.querySelector('#products-images-thumbs .products-image-thumb.active').classList.remove('active');
+        document.querySelectorAll('#products-images-thumbs .products-image-thumb')[nextImageIndex].classList.add('active');
+      }
+
       const prodsImages = [...document.querySelectorAll('#products-images-center .products-image')];
       const prodsImagesTotal = prodsImages.length;
       document.querySelectorAll('.products-arrow button').forEach(bntArrow => {
         const btnType = bntArrow.dataset.type;
-
-        bntArrow.addEventListener('click', () => {
-          const actualImage = document.querySelector('#products-images-center .products-image.active');
-          const actualImageIndex = prodsImages.indexOf(actualImage);
-          let nextImageIndex = null;
-          if (btnType === 'next') {
-            nextImageIndex = actualImageIndex === prodsImagesTotal - 1 ? 0 : actualImageIndex + 1;
-          } else {
-            nextImageIndex = actualImageIndex === 0 ? prodsImagesTotal - 1 : actualImageIndex - 1;
-          }
-          document.querySelector('#products-images-center .products-image.active').classList.remove('active');
-          document.querySelectorAll('#products-images-center .products-image')[nextImageIndex].classList.add('active');
-        });
+        bntArrow.addEventListener('click', () => handleMoveProducstsImagesCarroussel(btnType));
       });
 
       const thumbProductsImages = [...document.querySelectorAll('#products-images-thumbs .products-image-thumb')];
@@ -218,6 +223,14 @@
           document.querySelector('#products-images-center .products-image.active').classList.remove('active');
           document.querySelectorAll('#products-images-center .products-image')[btnImageIndex].classList.add('active');
         });
+      });
+
+      document.addEventListener('keydown', event => {
+        if ([37, 39].includes(event.keyCode) === false) {
+          return;
+        }
+        const actionType = event.keyCode === 37 ? 'previous' : 'next';
+        handleMoveProducstsImagesCarroussel(actionType);
       });
     });
   </script>
