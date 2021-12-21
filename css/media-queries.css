@@ -80,6 +80,9 @@
     #header-menu-middle-container > ul > li:hover > a {
         border-bottom-color: var(--primary-color);
     }
+    .main {
+        margin-top: 20px;
+    }
     #cart {
         width: 400px;
         top: 150px;
