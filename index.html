@@ -41,8 +41,9 @@
       </nav>
       <div id="header-menu-right">
         <ul>
-          <li id="header-menu-right-card-button">
+          <li id="header-menu-right-cart-button">
             <a href="javascript:void(0);">
+              <span id="header-menu-right-cart-badge">0</span>
               <img src="./images/icon-cart.svg" alt="Cart">
             </a>
           </li>
@@ -56,11 +57,11 @@
     </div>
   </header>
 
-  <section id="cart" class="has-items">
+  <section id="cart">
     <div id="cart-header">
       <h3 id="cart-title">Cart</h3>
     </div>
-    <div id="card-body">
+    <div id="cart-body">
       <div id="cart-empty">
         <h4 id="cart-empty-message">Your cart is empty</h4>
       </div>
@@ -167,7 +168,7 @@
             </button>
           </div>
           <div id="product-btn">
-            <button class="btn btn-shadown">
+            <button class="btn btn-shadown" id="btn-add-to-cart">
               <img src="./images/icon-cart.svg" alt="Cart">
               <span>Add to cart</span>
             </button>
@@ -193,14 +194,15 @@
         document.querySelector('#header-menu-middle').classList.remove('active');
       });
       document.querySelector('.cart-item-delete a').addEventListener('click', () => {
-        document.querySelector('#cart').classList.remove('has-items');
+        document.querySelector('body').classList.remove('has-items');
+        cartBadge.innerText = 0;
       });
-      document.querySelector('#header-menu-right-card-button a').addEventListener('click', () => {
+      document.querySelector('#header-menu-right-cart-button a').addEventListener('click', () => {
         document.querySelector('#cart').classList.toggle('active');
       });
       function handleCheckClickOutsideOfTheCart(event) {
         const elmCart = document.querySelector('#cart');
-        const btnOpenCart = document.querySelector('#header-menu-right-card-button a');
+        const btnOpenCart = document.querySelector('#header-menu-right-cart-button a');
         let elmTarget = event.target;
         do {
           if (elmTarget === elmCart || elmTarget === btnOpenCart) {
@@ -271,6 +273,19 @@
             inputAmount.value = inputValue < 999 ? inputValue + 1 : 999;
           }
         });
+      });
+
+      const inpAmountValue = document.querySelector('#product-amount-value');
+      const cartBadge = document.querySelector('#header-menu-right-cart-badge');
+      document.querySelector('#btn-add-to-cart').addEventListener('click', () => {
+        const amount = parseInt(inpAmountValue.value);
+        if (amount === 0) {
+          return;
+        }
+        cartBadge.innerText = parseInt(cartBadge.innerText) + amount;
+        if (document.querySelector('body').classList.contains('has-items') === false) {
+          document.querySelector('body').classList.add('has-items');
+        }
       });
     });
   </script>
