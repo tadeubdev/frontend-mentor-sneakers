@@ -254,7 +254,8 @@
       document.querySelector('#header-menu-right-cart-button a').addEventListener('click', () => {
         document.querySelector('#cart').classList.toggle('active');
       });
-      function handleCheckClickOutsideOfTheCart(event) {
+
+      document.addEventListener('click', event => {
         const elmCart = document.querySelector('#cart');
         const btnOpenCart = document.querySelector('#header-menu-right-cart-button a');
         let elmTarget = event.target;
@@ -266,8 +267,7 @@
         } while(elmTarget);
         // clicked outside of the cart
         document.querySelector('#cart').classList.remove('active');
-      }
-      document.addEventListener('click', event => handleCheckClickOutsideOfTheCart(event));
+      });
 
       function handleMoveProducstsImagesCarroussel(actionType) {
         const actualImage = document.querySelector('#product-images-center .product-image.active');
@@ -387,6 +387,20 @@
         productImage.addEventListener('click', () => {
           document.querySelector('#product-lightbox').classList.add('active');
         });
+      });
+
+      document.addEventListener('click', event => {
+        const elmLightboxContent = document.querySelector('#product-lightbox-center');
+        const elmThumbs = document.querySelector('#product-images-center');
+        let elmTarget = event.target;
+        do {
+          if (elmTarget === elmLightboxContent || elmTarget === elmThumbs) {
+            return;
+          }
+          elmTarget = elmTarget.parentNode;
+        } while(elmTarget);
+        // clicked outside of the cart
+        document.querySelector('#product-lightbox').classList.remove('active');
       });
     });
   </script>
