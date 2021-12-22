@@ -71,7 +71,12 @@
             <img src="./images/image-product-1-thumbnail.jpg" class="cart-item-image" alt="Autum Limited Edition">
             <div class="cart-item-middle">
               <h5>Autum Limited Edition</h5>
-              <p>$125.00 x 3 <strong>$375.00</strong></p>
+              <p>
+                $<span class="cart-item-middle-price">0.00</span> 
+                x 
+                <span class="cart-item-middle-quantity">1</span> 
+                <strong>$<span class="cart-item-middle-amount"></span></strong>
+              </p>
             </div>
             <div class="cart-item-delete">
               <a href="javascript:void(0);">
@@ -277,15 +282,25 @@
 
       const inpAmountValue = document.querySelector('#product-amount-value');
       const cartBadge = document.querySelector('#header-menu-right-cart-badge');
+      const itemPrice = document.querySelector('#product-actual-price-content');
+      const itemCartPrice = document.querySelector('.cart-item-middle-price');
+      const itemCartQuantity = document.querySelector('.cart-item-middle-quantity');
+      const itemCartAmount = document.querySelector('.cart-item-middle-amount');
       document.querySelector('#btn-add-to-cart').addEventListener('click', () => {
         const amount = parseInt(inpAmountValue.value);
         if (amount === 0) {
           return;
         }
-        cartBadge.innerText = parseInt(cartBadge.innerText) + amount;
+        const totalAmount = parseInt(cartBadge.innerText) + amount;
+        cartBadge.innerText = totalAmount;
         if (document.querySelector('body').classList.contains('has-items') === false) {
           document.querySelector('body').classList.add('has-items');
         }
+        let itemPriceValue = parseFloat(itemPrice.innerText.replace('$', ''));
+        itemCartQuantity.innerText = totalAmount;
+        itemCartPrice.innerText = itemPriceValue;
+        itemCartAmount.innerText = totalAmount * itemPriceValue;
+        inpAmountValue.value = 0;
       });
     });
   </script>
