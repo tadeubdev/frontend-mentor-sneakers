@@ -77,9 +77,6 @@
         width: 50px;
         height: 130px;
     }
-    #header-menu-right-cart-badge {
-        top: 50px;
-    }
     #header-menu-middle-container > ul > li:hover > a {
         border-bottom-color: var(--primary-color);
     }
@@ -136,5 +133,8 @@
 @media screen and (min-width: 1301px) {
     #cart {
         right: 16%;
+    }
+    #header-menu-right-cart-badge {
+        top: 50px;
     }
 }
